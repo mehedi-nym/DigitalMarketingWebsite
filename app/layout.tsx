@@ -1,7 +1,8 @@
 import React from "react"
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { ThemeProvider } from "next-themes"
+import { ThemeProvider } from "@/components/theme-provider"
+
 
 import '../app/globals.css'
 
