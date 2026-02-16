@@ -128,7 +128,15 @@ export default function QuoteModal({
       {/* Large Header Navigation */}
       <header className="sticky top-0 z-10 flex items-center justify-between p-6 md:p-10 bg-white/80 backdrop-blur-md">
         <div className="flex items-center gap-4">
-          <div className="text-[#591FFF] font-bold text-2xl tracking-tighter">BRAND.</div>
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
+              <span className="font-bold text-accent-foreground">∞</span>
+            </div>
+            <span className="text-xl font-bold text-foreground">
+              CreativeFlow
+            </span>
+          </div>
           <div className="h-6 w-[1px] bg-gray-200" />
           <span className="text-sm font-medium text-gray-500 uppercase tracking-widest">
             Step {currentStep} of {totalSteps}
@@ -154,7 +162,7 @@ export default function QuoteModal({
           {loading ? (
             <div className="flex flex-col items-center animate-pulse">
               <div className="w-12 h-12 border-4 border-gray-100 border-t-[#591FFF] rounded-full animate-spin mb-4" />
-              <p className="text-gray-400 font-medium">Loading details...</p>
+              <p className="text-gray-400 font-medium">Hold Tight...</p>
             </div>
           ) : (
             <div className="space-y-12">
@@ -172,8 +180,7 @@ export default function QuoteModal({
                 </h1>
                 <p className="text-gray-500 text-lg italic">Please provide the following information.</p>
               </div>
-
-              <div className="space-y-10">
+              <div className="space-y-5">
                 {currentQuestions.map((q) => (
                   <div key={q.id} className="animate-in fade-in slide-in-from-bottom-8 duration-500">
                     {['text', 'number'].includes(q.type) && (
@@ -196,7 +203,12 @@ export default function QuoteModal({
                     )}
 
                     {(q.type === 'radio' || q.type === 'select') && (
+                        
+                     <div>
+                        <p className="text-gray-500 text-sm mb-2">{q.placeholder || "Select an option must:"}</p>
+                      
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
                         {q.options?.map((option) => {
                           const isMulti = q.type === 'select';
                           const isSelected = isMulti
@@ -227,6 +239,7 @@ export default function QuoteModal({
                           );
                         })}
                       </div>
+                      </div>  
                     )}
                   </div>
                 ))}

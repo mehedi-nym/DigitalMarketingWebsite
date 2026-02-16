@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { supabaseServer as supabase } from '@/lib/supabase-server'
+import QuoteModal from '@/components/QuoteModal'
+import { Button } from './ui/button'
+
 
 
 type Project = {
@@ -21,6 +24,7 @@ export default function Portfolio() {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [open, setOpen] = useState(false)
 
   /* ================================
      Fetch from Supabase
@@ -157,9 +161,9 @@ export default function Portfolio() {
         <div className="mt-20 border-t border-muted/40 pt-12 text-center">
           <p className="mb-6 text-muted-foreground">Interested in working together?</p>
 
-          <Link
-            href="#contact"
+          <Button   
             className="inline-flex items-center justify-center gap-2 rounded-lg border border-accent/50 bg-accent/10 px-8 py-3 font-semibold text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
+            onClick={() => setOpen(true)}
           >
             Talk with Us
             <svg
@@ -175,7 +179,8 @@ export default function Portfolio() {
                 d="M13 7l5 5m0 0l-5 5m5-5H6"
               />
             </svg>
-          </Link>
+          </Button>
+          <QuoteModal isOpen={open} onClose={() => setOpen(false)} />
         </div>
       </div>
     </section>
