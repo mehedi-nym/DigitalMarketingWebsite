@@ -127,10 +127,10 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-12 border-t border-muted/30"></div>
+        <div className="my-4 border-t border-muted/30"></div>
 
         {/* Bottom Footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-sm text-muted-foreground">
           <p>© 2024 CreativeFlow. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-foreground transition-colors">
