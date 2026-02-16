@@ -4,6 +4,8 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
+import QuoteModal from '@/components/QuoteModal'
+import { useState } from 'react'
 
 export default function Header() {
   const { theme, setTheme } = useTheme()
@@ -11,6 +13,9 @@ export default function Header() {
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
+
+  const [open, setOpen] = useState(false)
+
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-muted/30 bg-background/80 backdrop-blur-md">
@@ -57,12 +62,21 @@ export default function Header() {
               )}
             </Button>
 
-            <Button className="bg-accent hover:bg-accent/90">
-              Let's Talk
-            </Button>
+            <Button
+  className="bg-accent hover:bg-accent/90"
+  onClick={() => setOpen(true)}
+>
+  Let's Talk
+</Button>
+<QuoteModal isOpen={open} onClose={() => setOpen(false)} />
+
           </div>
         </div>
       </div>
+      
     </header>
+    
   )
 }
+
+
