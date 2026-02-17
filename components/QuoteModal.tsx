@@ -176,11 +176,11 @@ export default function QuoteModal({
 
               <div className="space-y-2">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-[1.1]">
-                  {currentQuestions.length > 1 ? "Let's get some details" : currentQuestions[0]?.question}
+                  {currentQuestions.length > 1 ? "Let's get some contact details" : currentQuestions[0]?.question}
                 </h1>
                 <p className="text-gray-500 text-lg italic">Please provide the following information.</p>
               </div>
-              <div className="space-y-5">
+              <div className="space-y-2">
                 {currentQuestions.map((q) => (
                   <div key={q.id} className="animate-in fade-in slide-in-from-bottom-8 duration-500">
                     {['text', 'number'].includes(q.type) && (

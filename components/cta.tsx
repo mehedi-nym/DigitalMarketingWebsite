@@ -1,10 +1,13 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
+import ConsultationModal from './ConsultationModal'
 
 export default function CTA() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <section className="relative py-24 md:py-20 bg-background overflow-hidden">
       {/* Animated background circles */}
@@ -54,7 +57,9 @@ export default function CTA() {
               Start Your Project
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button className="border border-accent/30 hover:bg-accent/5 bg-transparent px-8 py-6 text-base rounded-full text-foreground transition-all duration-300 group">
+            <Button className="border border-accent/30 hover:bg-accent/5 bg-transparent px-8 py-6 text-base rounded-full text-foreground transition-all duration-300 group" onClick={() => {
+              setIsModalOpen(true)
+            }}>
               Schedule Consultation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -91,6 +96,7 @@ export default function CTA() {
           </div>
         </div>
       </div>
+      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }
