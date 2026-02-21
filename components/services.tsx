@@ -1,9 +1,12 @@
 'use client'
 
-import React from 'react'
+import React, {useState} from 'react'
 import { Check } from 'lucide-react'
+import ConsultationModal from './ConsultationModal'
+import { Button } from '@/components/ui/button'
 
 export default function Services() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const services = [
     {
       id: 1,
@@ -185,13 +188,21 @@ export default function Services() {
             Not sure which service is right for you?
           </p>
           <a
-            href="#contact"
-            className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold transition-colors hover:translate-x-1 duration-300"
-          >
-            Schedule a free consultation →
-          </a>
+  href="#contact"
+  className="group relative inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold transition-colors hover:translate-x-1 duration-300 cursor-pointer"
+  onClick={(e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  }}
+>
+  <span>Schedule a free consultation →</span>
+  
+  {/* The Underline Span */}
+  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+</a>
         </div>
       </div>
+      <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }
