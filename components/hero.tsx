@@ -35,7 +35,7 @@ export default function Hero() {
                 Start Project
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button className="border border-border hover:bg-secondary/40 bg-transparent px-8 py-6 text-base text-foreground rounded-lg transition-colors">
+              <Button onClick={() => window.location.href = "/projects"} className="border border-border hover:bg-secondary/40 bg-transparent px-8 py-6 text-base text-foreground rounded-lg transition-colors">
                 Explore Work
               </Button>
             </div>

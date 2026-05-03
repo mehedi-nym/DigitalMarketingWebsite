@@ -6,6 +6,7 @@ import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import QuoteModal from '@/components/QuoteModal'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Header() {
   const { theme, setTheme } = useTheme()
@@ -22,15 +23,20 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-              <span className="font-bold text-accent-foreground">∞</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">
-              CreativeFlow
-            </span>
-          </div>
+
+{/* Logo */}
+<Link href="/" className="flex items-center gap-2">
+  <div className="h-10 w-10 overflow-hidden rounded-lg">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnqVgO86GWBsUvXdtBzEXl3TjZCtbbJKEYrg&s"
+      alt="CreativeFlow Logo"
+      className="h-full w-full object-cover"
+    />
+  </div>
+  <span className="text-xl font-bold text-foreground">
+    CreativeFlow
+  </span>
+</Link>
 
           {/* Nav */}
           <nav className="hidden items-center gap-8 md:flex">

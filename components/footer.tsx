@@ -1,5 +1,6 @@
 import React from 'react'
 import { Mail, Linkedin, Twitter, Instagram } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -10,9 +11,16 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-1 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent">
-                <span className="font-bold text-accent-foreground">∞</span>
-              </div>
+              {/* Logo */}
+<Link href="/" className="flex items-center gap-2">
+  <div className="h-10 w-10 overflow-hidden rounded-lg">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnqVgO86GWBsUvXdtBzEXl3TjZCtbbJKEYrg&s" 
+      alt="CreativeFlow Logo"
+      className="h-full w-full object-cover"
+    />
+  </div>
+</Link>
               <span className="text-lg font-bold text-foreground">CreativeFlow</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
